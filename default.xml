@@ -26,7 +26,7 @@
 <!-- OnePlus 9 Series Kernel -->
   <project name="android_kernel_oppo_sm8350"
            path="kernel/msm-5.4"
-           revision="oneplus/sm8350v_15.0.0_oneplus9pro"
+           revision="oneplus/sm8350v_15.0.0_oneplus9pro_sukisu"
            remote="tqmane" clone-depth="1" />
 
   <project name="android_kernel_modules_and_devicetree_oppo_sm8350"
