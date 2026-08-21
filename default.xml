@@ -1,46 +1,129 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <manifest>
-  <remote name="aosp" 
-       fetch="https://android.googlesource.com/" />
-  <remote name="tqmane" 
-       fetch="https://github.com/tqmane/" />
-  <remote name="github" 
-       fetch="https://github.com/" />
+  <remote
+      name="aosp"
+      fetch="https://android.googlesource.com/" />
 
-  <default revision="master-kernel-build-2021" remote="aosp" sync-j="4" />
+  <remote
+      name="tqmane"
+      fetch="https://github.com/tqmane/" />
 
-  <superproject name="kernel/superproject" remote="aosp" revision="common-android11-5.4-lts" />
+  <remote
+      name="github"
+      fetch="https://github.com/" />
+
+  <default
+      revision="master-kernel-build-2021"
+      remote="aosp"
+      sync-j="4" />
+
+  <superproject
+      name="kernel/superproject"
+      remote="aosp"
+      revision="common-android11-5.4-lts" />
 
   <!-- Common Kernel Projects -->
-  <project path="build" name="kernel/build" />
-  <project path="kernel/tests" name="kernel/tests" />
-  <project path="kernel/configs" name="kernel/configs" />
-  <project path="prebuilts/build-tools" name="platform/prebuilts/build-tools" clone-depth="1" />
-  <project path="prebuilts/kernel-build-tools" name="kernel/prebuilts/build-tools" clone-depth="1" />
-  <project path="tools/mkbootimg" name="platform/system/tools/mkbootimg" />
-  <project path="tools/libufdt" name="platform/system/libufdt" revision="master" remote="aosp" />
-  <project path="prebuilts-master/clang/host/linux-x86" name="platform/prebuilts/clang/host/linux-x86" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9" clone-depth="1" />
-  <project path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9" clone-depth="1" />  
-<!-- OnePlus 9 Series Kernel -->
-  <project name="android_kernel_oppo_sm8350"
-           path="kernel/msm-5.4"
-           revision="oneplus/sm8350v_15.0.0_oneplus9pro"
-           remote="tqmane" clone-depth="1" />
+  <project
+      path="build"
+      name="kernel/build" />
 
-  <project name="android_kernel_modules_and_devicetree_oppo_sm8350"
-           path="modules_devicetree"
-           revision="oplus/sm8350v_15.0.0_oneplus_9Pro"
-           remote="tqmane" clone-depth="1">
-    <linkfile src="vendor" dest="vendor" />
-    <linkfile src="vendor/qcom/opensource/wlan/fw-api" dest="kernel/msm-5.4/drivers/staging/fw-api" />
-    <linkfile src="vendor/qcom/opensource/wlan/qcacld-3.0" dest="kernel/msm-5.4/drivers/staging/qcacld-3.0" />
-    <linkfile src="vendor/qcom/opensource/wlan/qca-wifi-host-cmn" dest="kernel/msm-5.4/drivers/staging/qca-wifi-host-cmn" />
-    <linkfile src="vendor/qcom/opensource/wlan/utils" dest="kernel/msm-5.4/drivers/staging/utils" />
+  <project
+      path="kernel/tests"
+      name="kernel/tests" />
 
+  <project
+      path="kernel/configs"
+      name="kernel/configs" />
+
+  <project
+      path="prebuilts/build-tools"
+      name="platform/prebuilts/build-tools"
+      clone-depth="1" />
+
+  <project
+      path="prebuilts/kernel-build-tools"
+      name="kernel/prebuilts/build-tools"
+      clone-depth="1" />
+
+  <project
+      path="tools/mkbootimg"
+      name="platform/system/tools/mkbootimg" />
+
+  <project
+      path="tools/libufdt"
+      name="platform/system/libufdt"
+      revision="master"
+      remote="aosp" />
+
+  <project
+      path="prebuilts-master/clang/host/linux-x86"
+      name="platform/prebuilts/clang/host/linux-x86"
+      clone-depth="1" />
+
+  <project
+      path="prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9"
+      name="platform/prebuilts/gcc/linux-x86/aarch64/aarch64-linux-android-4.9"
+      clone-depth="1" />
+
+  <project
+      path="prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9"
+      name="platform/prebuilts/gcc/linux-x86/arm/arm-linux-androideabi-4.9"
+      clone-depth="1" />
+
+  <project
+      path="prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9"
+      name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9"
+      clone-depth="1" />
+
+  <!-- OnePlus 9 Series Kernel -->
+  <!--
+    sync-s="true" enables Git submodule sync.
+    This repository currently contains:
+      KernelSU -> https://github.com/tqmane/SukiSU-Ultra-private.git
+  -->
+  <project
+      name="android_kernel_oppo_sm8350-private"
+      path="kernel/msm-5.4"
+      revision="oneplus/sm8350v_15.0.0_oneplus9pro_sukisu"
+      remote="tqmane"
+      clone-depth="1"
+      sync-s="true" />
+
+  <!-- OnePlus / OPlus modules and device tree -->
+  <project
+      name="android_kernel_modules_and_devicetree_oppo_sm8350"
+      path="modules_devicetree"
+      revision="oplus/sm8350v_15.0.0_oneplus_9Pro"
+      remote="tqmane"
+      clone-depth="1">
+
+    <linkfile
+        src="vendor"
+        dest="vendor" />
+
+    <linkfile
+        src="vendor/qcom/opensource/wlan/fw-api"
+        dest="kernel/msm-5.4/drivers/staging/fw-api" />
+
+    <linkfile
+        src="vendor/qcom/opensource/wlan/qcacld-3.0"
+        dest="kernel/msm-5.4/drivers/staging/qcacld-3.0" />
+
+    <linkfile
+        src="vendor/qcom/opensource/wlan/qca-wifi-host-cmn"
+        dest="kernel/msm-5.4/drivers/staging/qca-wifi-host-cmn" />
+
+    <linkfile
+        src="vendor/qcom/opensource/wlan/utils"
+        dest="kernel/msm-5.4/drivers/staging/utils" />
   </project>
 
   <!-- AnyKernel3 -->
-<project path="ak3" name="AnyKernel3" remote="tqmane" revision="op9pro" clone-depth="1" />
+  <project
+      path="ak3"
+      name="AnyKernel3"
+      remote="tqmane"
+      revision="op9pro"
+      clone-depth="1" />
+
 </manifest>

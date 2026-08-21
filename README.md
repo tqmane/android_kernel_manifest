@@ -11,5 +11,5 @@ repo sync --force-sync --no-clone-bundle --current-branch --no-tags -j$(nproc --
 ## Build ##
 For Clang builds
 ```bash
-BUILD_CONFIG=kernel/msm-5.4/build.config.msm.lemonade VARIANT=qgki LTO=full BUILD_KERNEL=1 build/build.sh
+BUILD_CONFIG=kernel/msm-5.4/build.config.msm.lemonade VARIANT=qgki LTO=thin BUILD_KERNEL=1 build/build.sh
 ```
