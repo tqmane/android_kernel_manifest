@@ -85,7 +85,7 @@
   <project
       name="android_kernel_oppo_sm8350-private"
       path="kernel/msm-5.4"
-      revision="oneplus/sm8350v_17.0.0_oneplus9pro_sukisu"
+      revision="fix/bpf-lsm-boot-oneplus9pro"
       remote="tqmane"
       clone-depth="1"
       sync-s="true" />
