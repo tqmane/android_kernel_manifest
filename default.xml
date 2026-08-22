@@ -43,6 +43,7 @@
   <project
       path="prebuilts/kernel-build-tools"
       name="kernel/prebuilts/build-tools"
+      revision="main-kernel-build-2023"
       clone-depth="1" />
 
   <project
@@ -84,7 +85,7 @@
   <project
       name="android_kernel_oppo_sm8350-private"
       path="kernel/msm-5.4"
-      revision="oneplus/sm8350v_15.0.0_oneplus9pro_sukisu"
+      revision="oneplus/sm8350v_17.0.0_oneplus9pro_sukisu"
       remote="tqmane"
       clone-depth="1"
       sync-s="true" />
