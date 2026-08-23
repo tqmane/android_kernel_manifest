@@ -76,7 +76,7 @@
       name="platform/prebuilts/gcc/linux-x86/x86/x86_64-linux-android-4.9"
       clone-depth="1" />
 
-  <!-- OnePlus 9 Series Kernel -->
+  <!-- OnePlus 9 Series Android 17 BPF kernel -->
   <!--
     sync-s="true" enables Git submodule sync.
     This repository currently contains:
@@ -85,7 +85,7 @@
   <project
       name="android_kernel_oppo_sm8350-private"
       path="kernel/msm-5.4"
-      revision="fix/bpf-lsm-boot-oneplus9pro"
+      revision="fix/android17-bpf-task-storage-recursion"
       remote="tqmane"
       clone-depth="1"
       sync-s="true" />
