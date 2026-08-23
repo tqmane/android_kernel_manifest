@@ -3,8 +3,9 @@
 ## Android 17 BPF / OnePlus 9 Pro
 
 This branch tracks the boot-tested Linux 5.4.254 Android 17 BPF compatibility
-kernel plus the task-local-storage recursion hardening branch. The manifest also
-selects the LTO-capable kernel build tools required for BTF generation.
+kernel plus the upstream-style task-local-storage recursion hardening branch.
+The manifest also selects the LTO-capable kernel build tools required for BTF
+generation.
 
 ### Repo init
 
@@ -30,6 +31,6 @@ build/build.sh
 ```
 
 The optional Docker/LXC/KVM profile lives on the dedicated kernel branch
-`oneplus/sm8350v_17.0.0_oneplus9pro_sukisu_lxc_docker_kvm` and uses
+`oneplus/sm8350v_17.0.0_oneplus9pro_sukisu_lxc_docker_kvm_v2` and uses
 `kernel/msm-5.4/build.config.lemonade.container`. The build Action selects that
 branch explicitly; it is not enabled by this plain manifest checkout.
